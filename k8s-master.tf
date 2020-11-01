@@ -1,7 +1,7 @@
 resource "proxmox_vm_qemu" "k8s_master" {
 
   count             = 3
-  name              = "tf-k8s-master-0${count.index}"
+  name              = "tf-k8s-master-0${count.index + 1}"
   target_node       = "pve"
 
   clone             = "ubuntu20LTS-template"
@@ -19,8 +19,8 @@ resource "proxmox_vm_qemu" "k8s_master" {
   hotplug           = "network,cpu,memory,disk"
   agent		          = 1
   disk {
-    id              = 0
-    size            = 16
+    #id              = 0
+    size            = "16G"
     type            = "scsi"
     storage         = "vmstorage"
     storage_type    = "dir"
@@ -30,7 +30,7 @@ resource "proxmox_vm_qemu" "k8s_master" {
   }
 
   network {
-    id              = 0
+    #id              = 0
     model           = "virtio"
     bridge          = "vmbr0"
   }

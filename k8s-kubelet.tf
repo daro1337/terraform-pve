@@ -1,11 +1,11 @@
 resource "proxmox_vm_qemu" "k8s-kubelet" {
   count             = 3
-  name              = "tf-kubelet-0${count.index}"
+  name              = "tf-kubelet-0${count.index + 1}"
   target_node       = "pve"
 
   clone             = "ubuntu20LTS-template"
   full_clone	      = "1"
-  force_create	    = false
+  #force_create	    = false
   os_type           = "ubuntu"
   onboot	          = "1"
   cores             = 1
@@ -18,8 +18,8 @@ resource "proxmox_vm_qemu" "k8s-kubelet" {
   hotplug           = "network,cpu,memory,disk"
   agent		          = 1
   disk {
-    id              = 0
-    size            = 20
+    #id              = 0
+    size            = "20G"
     type            = "scsi"
     storage         = "vmstorage"
     storage_type    = "dir"
@@ -29,7 +29,7 @@ resource "proxmox_vm_qemu" "k8s-kubelet" {
   }
 
   network {
-    id              = 0
+    #id              = 0
     model           = "virtio"
     bridge          = "vmbr0"
   }

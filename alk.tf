@@ -1,11 +1,11 @@
 resource "proxmox_vm_qemu" "alk_vm" {
   count             = 1
-  name              = "tf-ALKdevel-0${count.index}"
+  name              = "tf-ALKdevel-0${count.index + 1}"
   target_node       = "pve"
 
   clone             = "ubuntu20LTS-template"
   full_clone	      = "1"
-  force_create	    = false
+  #force_create	    = false
   os_type           = "ubuntu"
   onboot	           = "1"
   cores             = 2
@@ -19,8 +19,9 @@ resource "proxmox_vm_qemu" "alk_vm" {
   agent		          = 1
 
   disk {
-    id              = 0
-    size            = 16
+    #fix applied https://github.com/Telmate/terraform-provider-proxmox/issues/233
+    #id              = 0
+    size            = "16G"
     type            = "scsi"
     storage         = "vmstorage"
     storage_type    = "dir"
@@ -30,7 +31,7 @@ resource "proxmox_vm_qemu" "alk_vm" {
   }
 
   network {
-    id              = 0
+    #id              = 0
     model           = "virtio"
     bridge          = "vmbr0"
   }

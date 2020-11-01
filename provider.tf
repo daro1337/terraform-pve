@@ -4,5 +4,5 @@ provider "proxmox" {
     #pm_password  = password | or "export PM_PASS=password"
     pm_tls_insecure = "true"
     pm_parallel = 8
-    pm_timeout = 120
+    pm_timeout = 600
 }

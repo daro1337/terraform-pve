@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     proxmox = {
-      source  = "windowsD/telmate/proxmox"
+      source  = "windowsd/telmate/proxmox"
       version = ">=1.0.0"
     }
   }

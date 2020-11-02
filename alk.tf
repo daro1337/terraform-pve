@@ -34,5 +34,6 @@ resource "proxmox_vm_qemu" "alk_vm" {
     #id              = 0
     model           = "virtio"
     bridge          = "vmbr0"
+    tag             = 0
   }
 }

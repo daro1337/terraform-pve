@@ -33,5 +33,6 @@ resource "proxmox_vm_qemu" "k8s-kubelet" {
     #id              = 0
     model           = "virtio"
     bridge          = "vmbr0"
+    tag             = 0
   }
 }

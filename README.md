@@ -38,3 +38,15 @@ Resize disk size
  ```
  qm resize 9000 scsi0 +8G
  ```
+
+
+```
+root@windowsD:/opt/terraform# terraform state list
+proxmox_vm_qemu.alk_vm[0]
+proxmox_vm_qemu.k8s-kubelet[0]
+proxmox_vm_qemu.k8s-kubelet[1]
+proxmox_vm_qemu.k8s-kubelet[2]
+proxmox_vm_qemu.k8s_master[0]
+proxmox_vm_qemu.k8s_master[1]
+proxmox_vm_qemu.k8s_master[2]
+```

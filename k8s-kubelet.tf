@@ -8,6 +8,8 @@ resource "proxmox_vm_qemu" "k8s-kubelet" {
   force_create	    = false
   os_type           = "cloud-init"
   ipconfig0         = "ip=dhcp,ip6=dhcp"
+  sshkeys           = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBeXGn0+2z/69MYQrVp1jZLlY5IipUQzyPDZ0Ww1ZmUREDkv0uBhMG4JD131KziMIaMrtIG/s0QroC80WllwYrfqDUxLCxlpLvqBdxrxbaVBhZUcPfB1AWG3A1NwFbs9fA+bMHQA9LBDMQM+bLJSshClkG+YvWtZVtXk0XhMt01J6sTol3JP3XhIbkWQ6NguIggKoSqksD72jFvbRwQbMQm9gZo4jF713NS8DgRvn4wTXtfgmT2NGPIjois+N/Ti/P+lOo4J59PhNEZqVIN0yLqkJ7mhdIxUf+Mcy61+qotpbvF/qls79nHmvTSg6Yr7s+zwjZBII8KVsi+m3D1nPV daro@windowsD"
+  ciuser            = "root"
   onboot	          = "1"
   cores             = 1
   sockets           = "2"

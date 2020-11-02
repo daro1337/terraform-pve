@@ -9,3 +9,32 @@
 
 
 ```terraform ```
+
+## Cloud-init @pve:
+### edit image and rebuiuld template
+```
+apt install libguestfs-tools
+```
+
+Edit:
+```
+virt-edit -a cloudImage /path/to/cloud.cfg
+```
+Cat:
+```
+virt-cat -a cloudImage /path/to/cloud.cfg
+```
+
+import image to local storage
+```
+qm importdisk 9000 focal-server-cloudimg-amd64.img vmstorage --format qcow2
+```
+Attach image to template
+```
+ qm set 9000 --scsihw virtio-scsi-pci --scsi0 vmstorage:9000/vm-9000-disk-1.qcow2
+ ```
+
+Resize disk size
+ ```
+ qm resize 9000 scsi0 +8G
+ ```

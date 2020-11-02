@@ -3,10 +3,10 @@ resource "proxmox_vm_qemu" "alk_vm" {
   name              = "tf-ALKdevel-0${count.index + 1}"
   target_node       = "pve"
 
-  clone             = "ubuntu20LTS-template"
+  clone             = "ubuntu20LTS-cloudinit"
   full_clone	      = "1"
-  #force_create	    = false
-  os_type           = "ubuntu"
+  os_type           = "cloud-init"
+  ipconfig0         = "ip=dhcp,ip6=dhcp"
   onboot	           = "1"
   cores             = 2
   sockets           = "2"

@@ -13,7 +13,7 @@ resource "proxmox_vm_qemu" "k8s_master" {
   ciuser            = "root"
   onboot	          = "1"
   cores             = 1
-  sockets           = "1"
+  sockets           = "2"
   cpu               = "host"
   numa		          = "1"
   memory            = 1024
